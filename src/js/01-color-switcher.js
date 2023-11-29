@@ -1,1 +1,2 @@
 
+startBtn = document.querySelector('.start');

@@ -1,2 +1,3 @@
 
-startBtn = document.querySelector('.start');
+startBtn = document.querySelectorData('.start');
+stopBtn = document.querySelectorData('.stop')

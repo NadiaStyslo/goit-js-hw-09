@@ -5,7 +5,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 const inputId = document.querySelector('#datetime-picker');
 const buttonEl = document.querySelector('button[data-start]')
 const timerEl = document.querySelector('.timer')
-//const fieldEl = document.querySelector('.field');
+const fieldEl = document.querySelector('.field');
 const valueDays = document.querySelector('[data-days]');
 //const labelEl = document.querySelector('.label');
 const valueHours = document.querySelector('[data-hours]');
@@ -17,11 +17,15 @@ let timerId = null;
 let selectedDate = null;
 let timer = {};
 
+//timer.style.fontSize = '40%'
 timerEl.style.display = 'flex';
 timerEl.style.margin = '6px';
-timerEl.style.width = '250px'
+timerEl.style.width = '250px';
+buttonEl.style.margin = '10px';
+buttonEl.style.fontSize = '200%';
+//fieldEl.style.fontSize = '40px'
 
-// inputId.addEventListener('click', onInputIdClick);
+
 // buttonEl.addEventListener('click', onButtonStartClick);
 
 buttonEl.setAttribute('disabled', "")
@@ -30,6 +34,7 @@ const options = {
     time_24hr: true,
     defaultDate: Date.now(),
     minuteIncrement: 1,
+    
     onClose(selectedDates) {
         selectedDate = selectedDates[0].getTime()
         if (selectedDate < Date.now()) {
@@ -44,6 +49,7 @@ const options = {
     }
 }
 flatpickr('#datetime-picker', options);
+
 function onClickStart(){
     buttonEl.addEventListener('click', onStartTime)
 }
@@ -64,7 +70,7 @@ function onWorkTimer() {
     
     if (timeFinish < 1000) {
         clearInterval(timerId)
-        console.log(Date.now);
+        //console.log(Date.now);
     }
     function addLeadingZero(value) {
   return String(value).padStart(2, '0');
@@ -90,5 +96,5 @@ function convertMs(ms) {
   // Remaining seconds
   const seconds = Math.floor((((ms % day) % hour) % minute) / second);
 
-  return { days, hours, minutes, seconds };
+  return (timer = { days, hours, minutes, seconds });
 }

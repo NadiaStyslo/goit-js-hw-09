@@ -16,3 +16,13 @@ img {
   display: block;
   max-width: 100%;
 }
+.timer .field{
+  font-size: 30px;
+  margin: 10px;
+}
+.flatpickr-input{
+  font-size: 20px;
+  margin-left: 20px;
+}
+
+
